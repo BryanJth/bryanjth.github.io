@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+<defs><radialGradient id="bg"><stop stop-color="#eaf9ff"/><stop offset="1" stop-color="#8fbfe7"/></radialGradient><linearGradient id="line" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1658aa"/><stop offset="1" stop-color="#20c0bf"/></linearGradient><filter id="shadow"><feDropShadow dx="0" dy="8" stdDeviation="9" flood-color="#154b89" flood-opacity=".15"/></filter></defs>
+<circle cx="300" cy="300" r="300" fill="url(#bg)"/>
+<circle cx="300" cy="300" r="230" fill="none" stroke="#fff" stroke-width="2" opacity=".5"/>
+<circle cx="300" cy="300" r="155" fill="#ffffff" opacity=".67" filter="url(#shadow)"/>
+<g fill="none" stroke="#1c5da7" stroke-opacity=".22"><path d="M50 300H550M300 45V555M95 95L505 505M505 95L95 505"/><circle cx="300" cy="300" r="263" stroke-dasharray="4 9"/></g>
+<g stroke="url(#line)" stroke-width="4" fill="none" stroke-linecap="round"><path d="M103 393L164 338L222 370L274 257L346 289L413 181L501 213"/><path d="M92 441L155 417L222 458L305 405L380 431L495 356" opacity=".55"/></g>
+<g fill="#fff" stroke="#2871c5" stroke-width="4"><circle cx="103" cy="393" r="9"/><circle cx="164" cy="338" r="9"/><circle cx="222" cy="370" r="9"/><circle cx="274" cy="257" r="9"/><circle cx="346" cy="289" r="9"/><circle cx="413" cy="181" r="9"/><circle cx="501" cy="213" r="9"/></g>
+<text x="300" y="320" fill="#11366e" text-anchor="middle" font-size="112" font-weight="800" font-family="Arial,sans-serif" letter-spacing="-12">BJ</text>
+<text x="300" y="356" fill="#24619c" text-anchor="middle" font-size="17" font-weight="700" font-family="Arial,sans-serif" letter-spacing="4">DATA SCIENTIST</text>
+<g fill="#3f7dbd" opacity=".85"><circle cx="135" cy="181" r="7"/><circle cx="470" cy="430" r="8"/><circle cx="494" cy="111" r="5"/><circle cx="101" cy="501" r="5"/></g>
+</svg>
