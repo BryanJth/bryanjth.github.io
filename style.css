@@ -1152,3 +1152,56 @@ h1, h2, h3 { font-weight: 800; line-height: 1.1; margin: 0; color: var(--ink); l
   .cert--showcase .cert__bottom { align-items: flex-start; }
   .cert--showcase .cert__view { font-size: 11px; }
 }
+
+
+/* Oct 2026: Separate ML / AI from analytics & software projects */
+#projects .project-category + .project-category { margin-top: 54px; }
+#projects .scroller--two .project { flex: 0 0 calc((100% - 20px) / 2); }
+#projects .project-category .scroller__nav[hidden] { display:none; }
+/* Three credentials across at desktop, two on a tablet, one on mobile */
+#certifications .certs { align-items: stretch; justify-content: flex-start; }
+#certifications .certs > .cert--showcase {
+  flex: 0 0 calc((100% - 44px) / 3);
+  min-width: 0;
+  padding: 19px;
+  gap: 15px;
+}
+#certifications .cert--showcase .cert__top { min-height: 90px; }
+#certifications .cert--showcase h3 { font-size: 18px; }
+#certifications .cert--showcase .cert__logo { width: 58px; height: 58px; }
+#certifications .cert--showcase .cert__panel--document {
+  grid-template-columns: minmax(0, 1fr) minmax(104px, .76fr);
+  min-height: 235px; padding: 18px 14px; gap: 10px;
+}
+#certifications .cert--showcase .cert__panel-value { font-size: clamp(19px, 1.6vw, 25px); }
+#certifications .cert--showcase .cert__paper { width: min(100%,134px); height: 166px; }
+#certifications .cert--showcase .cert__paper--landscape { width: min(100%,146px); height: 104px; }
+#certifications .cert--showcase .cert__paper--udemy { height: 170px; width: min(100%,126px); }
+#certifications .cert--showcase .cert__paper--udemy img { object-fit: cover; }
+#certifications .cert--showcase .cert__panel--udemy { background: radial-gradient(110% 100% at 100% 0%, rgba(164,53,240,.20), transparent 70%), linear-gradient(135deg,#0c2146 0%,#133870 100%); }
+#certifications .cert--showcase .cert__paper span { font-size: 9px; }
+#certifications .cert--showcase .cert__bottom { margin-top: auto; }
+@media (max-width: 1200px) {
+  #certifications .certs > .cert--showcase { flex: 0 0 calc((100% - 22px) / 2); }
+  #certifications .cert--showcase .cert__panel--document { min-height: 250px; }
+  #certifications .cert--showcase .cert__paper { width: min(100%,150px); height: 190px; }
+  #certifications .cert--showcase .cert__paper--landscape { width: min(100%,178px); height: 117px; }
+}
+@media (max-width: 960px) {
+  #certifications .certs > .cert--showcase { flex: 0 0 100%; }
+  #certifications .cert--showcase .cert__panel--document { grid-template-columns: minmax(0,1fr) minmax(130px,.72fr); }
+}
+@media (max-width: 720px) {
+  #projects .scroller--two .project { flex: 0 0 86%; }
+  #projects .project-category + .project-category { margin-top: 40px; }
+}
+@media (max-width: 520px) {
+  #certifications .certs > .cert--showcase { padding: 17px; }
+  #certifications .cert--showcase .cert__top { min-height: auto; }
+  #certifications .cert--showcase .cert__logo { width: 54px; height: 54px; }
+  #certifications .cert--showcase .cert__panel--document { grid-template-columns: minmax(0,1fr) minmax(85px,.75fr); min-height: 195px; padding: 16px 12px; }
+  #certifications .cert--showcase .cert__paper { width: min(100%,94px); height: 138px; }
+  #certifications .cert--showcase .cert__paper--landscape { width: min(100%,115px); height: 80px; }
+  #certifications .cert--showcase .cert__paper--udemy { width: min(100%,94px); height: 132px; }
+  #certifications .cert--showcase .cert__panel-value { font-size: 20px; }
+}
