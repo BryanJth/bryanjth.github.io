@@ -51,26 +51,50 @@ if (roleEl && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
 // Footer year
 document.getElementById("year").textContent = new Date().getFullYear();
 
+// Project case-study showcase
+const projectStage = document.querySelector(".projects__stage");
+const projectControls = document.querySelector(".projects__controls");
+const projectCards = Array.from(projectStage.querySelectorAll(".project"));
+const projectLinks = Array.from(document.querySelectorAll(".projects__index a"));
+const projectPosition = projectControls.querySelector("[data-position]");
+const currentProjectTitle = projectControls.querySelector("[data-current-title]");
+const projectNumber = (number) => String(number).padStart(2, "0");
+let activeProject = 0;
 
-// Horizontal project scroller arrows
-document.querySelectorAll(".subsec").forEach((sub) => {
-  const track = sub.querySelector(".scroller");
-  const btns = sub.querySelectorAll(".scroller__btn");
-  if (!track || !btns.length) return;
-  const nav = sub.querySelector(".scroller__nav");
-  const update = () => {
-    nav.hidden = track.scrollWidth <= track.clientWidth + 4;
-    btns[0].disabled = track.scrollLeft <= 4;
-    btns[1].disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
-  };
-  btns.forEach((b) =>
-    b.addEventListener("click", () => {
-      const card = track.querySelector(".project");
-      const step = card ? card.offsetWidth + parseFloat(getComputedStyle(track).gap || 0) : track.clientWidth;
-      track.scrollBy({ left: step * Number(b.dataset.dir) });
-    })
-  );
-  track.addEventListener("scroll", update, { passive: true });
-  window.addEventListener("resize", update);
-  update();
+function showProject(index) {
+  activeProject = index;
+  projectCards.forEach((card, i) => { card.hidden = i !== index; });
+  projectLinks.forEach((link, i) => {
+    if (i === index) link.setAttribute("aria-current", "true");
+    else link.removeAttribute("aria-current");
+  });
+  projectPosition.textContent = `${projectNumber(index + 1)} / ${projectNumber(projectCards.length)}`;
+  currentProjectTitle.textContent = `, ${projectCards[index].querySelector("h3").textContent}`;
+}
+
+function selectProjectFromHash() {
+  const index = projectCards.findIndex((card) => `#${card.id}` === window.location.hash);
+  if (index >= 0) showProject(index);
+}
+
+projectControls.querySelectorAll("[data-step]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const next = (activeProject + Number(button.dataset.step) + projectCards.length) % projectCards.length;
+    showProject(next);
+    if (projectCards.some((card) => `#${card.id}` === window.location.hash)) {
+      history.replaceState(null, "", `#${projectCards[next].id}`);
+    }
+  });
 });
+projectLinks.forEach((link, index) => {
+  // Reveal the anchor's target before the browser follows the link.
+  link.addEventListener("click", (event) => {
+    if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    showProject(index);
+  });
+});
+window.addEventListener("hashchange", selectProjectFromHash);
+showProject(0);
+selectProjectFromHash();
+projectStage.classList.add("is-interactive");
+projectControls.hidden = false;
