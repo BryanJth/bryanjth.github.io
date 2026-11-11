@@ -755,6 +755,15 @@ h1, h2, h3 { font-weight: 800; line-height: 1.1; margin: 0; color: var(--ink); l
   border-radius: 12px;
   background: var(--blue-50);
 }
+.project__visual {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  margin-bottom: 22px;
+  background: var(--white);
+}
 .project__canvas--image { padding: 0; overflow: hidden; }
 .project__canvas--image img { width: 100%; max-height: 300px; height: auto; object-fit: contain; }
 .project__evidence figcaption { padding: 11px 8px 0; color: var(--text); font-size: 12px; }
